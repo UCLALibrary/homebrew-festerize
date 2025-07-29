@@ -5,20 +5,20 @@
 class Festerize < Formula
   desc "Uploads CSV files to the Fester IIIF manifest service for processing"
   homepage "https://github.com/UCLALibrary/go-festerize"
-  version "0.4.3"
+  version "0.5.0"
 
   on_macos do
-    on_intel do
-      url "https://github.com/UCLALibrary/go-festerize/releases/download/v0.4.3/festerize_Darwin_x86_64.zip"
-      sha256 "813e9710c95dbe9192a2cf221e8f694e44b4e217442d6410ce8ebadc6f2323c9"
+    if Hardware::CPU.intel?
+      url "https://github.com/UCLALibrary/go-festerize/releases/download/0.5.0/festerize_Darwin_x86_64.zip"
+      sha256 "8986bbb4e3ca06df0e1deb2621d88370b0ea4ea1efa4ec60961a15f941109696"
 
       def install
         bin.install "festerize"
       end
     end
-    on_arm do
-      url "https://github.com/UCLALibrary/go-festerize/releases/download/v0.4.3/festerize_Darwin_arm64.zip"
-      sha256 "8ecca51a3d58ce5069dbbaf01d742db9053f19429712c211f81641e752684ba9"
+    if Hardware::CPU.arm?
+      url "https://github.com/UCLALibrary/go-festerize/releases/download/0.5.0/festerize_Darwin_arm64.zip"
+      sha256 "53dd6a029f1be1b804f0eeda1549b24e6781ea6c3548c2f56748662ce3ca8d73"
 
       def install
         bin.install "festerize"
@@ -27,24 +27,18 @@ class Festerize < Formula
   end
 
   on_linux do
-    on_intel do
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/UCLALibrary/go-festerize/releases/download/v0.4.3/festerize_Linux_x86_64.tar.gz"
-        sha256 "3a79e08ad6d8012214730348e46f8e31d83d1012865995778b4605300c6851db"
-
-        def install
-          bin.install "festerize"
-        end
+    if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
+      url "https://github.com/UCLALibrary/go-festerize/releases/download/0.5.0/festerize_Linux_x86_64.tar.gz"
+      sha256 "b40a31337430be06b1b4cd0ac6146df9607b26f6cfef5ec786ef817ac9cb2689"
+      def install
+        bin.install "festerize"
       end
     end
-    on_arm do
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/UCLALibrary/go-festerize/releases/download/v0.4.3/festerize_Linux_arm64.tar.gz"
-        sha256 "8924c6e82e51e6b94d12aeba77cabf2638f8cdd8776d2561d2a6e974605f1d97"
-
-        def install
-          bin.install "festerize"
-        end
+    if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
+      url "https://github.com/UCLALibrary/go-festerize/releases/download/0.5.0/festerize_Linux_arm64.tar.gz"
+      sha256 "218f01ea81faaf7b7f99dc333248167e027a4353f8a13145a059e11b831efb72"
+      def install
+        bin.install "festerize"
       end
     end
   end
