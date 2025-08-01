@@ -10,7 +10,7 @@ class Festerize < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/UCLALibrary/go-festerize/releases/download/0.5.0/festerize_Darwin_x86_64.zip"
-      sha256 "8986bbb4e3ca06df0e1deb2621d88370b0ea4ea1efa4ec60961a15f941109696"
+      sha256 "1a257bd86fdff87b9a3d32e774fe78fad9c0dcf4710be25e648d02f83ce70217"
 
       def install
         bin.install "festerize"
@@ -18,7 +18,7 @@ class Festerize < Formula
     end
     if Hardware::CPU.arm?
       url "https://github.com/UCLALibrary/go-festerize/releases/download/0.5.0/festerize_Darwin_arm64.zip"
-      sha256 "53dd6a029f1be1b804f0eeda1549b24e6781ea6c3548c2f56748662ce3ca8d73"
+      sha256 "a46c11c3bfe1e6cebcc2acc15a65cb2749a85cdd490f091777b992c9f626ee58"
 
       def install
         bin.install "festerize"
@@ -29,14 +29,14 @@ class Festerize < Formula
   on_linux do
     if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
       url "https://github.com/UCLALibrary/go-festerize/releases/download/0.5.0/festerize_Linux_x86_64.tar.gz"
-      sha256 "b40a31337430be06b1b4cd0ac6146df9607b26f6cfef5ec786ef817ac9cb2689"
+      sha256 "62f7f4f383c510bdc893527adb627ef6055c10c718d9a5d3691139b00ef90985"
       def install
         bin.install "festerize"
       end
     end
     if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
       url "https://github.com/UCLALibrary/go-festerize/releases/download/0.5.0/festerize_Linux_arm64.tar.gz"
-      sha256 "218f01ea81faaf7b7f99dc333248167e027a4353f8a13145a059e11b831efb72"
+      sha256 "fc3c1cde04d892ee2206374ed6e6c4e34aad57494bb63e169cb0eebb89ffcbda"
       def install
         bin.install "festerize"
       end
